@@ -69,7 +69,7 @@ end
   def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
     block_given? ? yield(@facebook) : @facebook
-  rescue Koala::Facebook::APIError => e
+    rescue Koala::Facebook::APIError => e
     logger.info e.to_s
     nil
   end

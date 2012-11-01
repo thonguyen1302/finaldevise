@@ -27,17 +27,19 @@
   <b> Number of Friends: </b> <%= current_user.friends_count %> 
       Friends <%=current_user.list_friends%>
       <%= text_field_tag(params[:st])%>
-      <%= link_to 'Post', current_user.post_to_wall("params[:st]") %>
+      <%= link_to 'Post', current_user.post_to_wall(params[:st]) %>
 <% end %>
 
 <p>
   <%= form_tag '/users/post' do %>
    <b><%= label_tag("Status") %></b>
-   <%= text_area_tag(params[:status]) %>
+   <%= text_area_tag(:status, params[:status]) %>
+  
+
    </br>
    <%= submit_tag "post to Facebook" %>
   <% end %>
-</br>
+  </br>
 </p>
 
 

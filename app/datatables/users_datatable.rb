@@ -9,7 +9,7 @@ class UsersDatatable
     {
       sEcho: params[:sEcho].to_i,
       iTotalRecords: User.count,
-      iTotalDisplayRecords: users.total_entries,
+      iTotalDisplayRecords: users.total_count,
       aaData: data
     }
   end
@@ -36,7 +36,7 @@ private
 
   def fetch_users
     users = User.order("#{sort_column} #{sort_direction}")
-    users = users.page(page).per_page(per_page)
+    users = users.page(page).per(per_page)
     if params[:sSearch].present?
       users = users.where("name like :search", search: "%#{params[:sSearch]}%")
     end

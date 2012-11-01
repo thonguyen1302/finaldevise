@@ -58,9 +58,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'will_paginate'
+# gem 'will_paginate'
 
-gem "kaminari"
 
 gem 'jquery-rails'
 
