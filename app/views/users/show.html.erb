@@ -1,0 +1,45 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First_Name:</b>
+  <%= @user.first_name %>
+</p>
+<p>
+  <b>Last_Name</b>
+  <%= @user.last_name %>
+</p>
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+<p>
+  <b>Birthday:</b>
+  <%= @user.birthday %>
+</p>
+<p>
+  <b>Phone:</b>
+  <%= @user.phone_number %>
+</p>
+
+
+<% if current_user %>
+  <b> Number of Friends: </b> <%= current_user.friends_count %> 
+      Friends <%=current_user.list_friends%>
+      <%= text_field_tag(params[:st])%>
+      <%= link_to 'Post', current_user.post_to_wall("params[:st]") %>
+<% end %>
+
+<p>
+  <%= form_tag '/users/post' do %>
+   <b><%= label_tag("Status") %></b>
+   <%= text_area_tag(params[:status]) %>
+   </br>
+   <%= submit_tag "post to Facebook" %>
+  <% end %>
+</br>
+</p>
+
+
+<%= link_to 'Edit', edit_user_registration_path %> |
+<%= link_to 'Back', new_user_registration_path %>
